@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Yevhen Harmash · Senior Frontend Engineer · CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --accent: #3d2aff;
+    --lime: #c6f035;
+    --ink: #111111;
+    --muted: #6b6b6b;
+    --light: #a5a5a5;
+    --line: #e2e2e2;
+  }
+
+  @page { size: A4; margin: 0; }
+
+  html, body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 14mm 14mm 10mm;
+    background: #ffffff;
+    color: var(--ink);
+    font-family: "DM Sans", sans-serif;
+    font-size: 9.2pt;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ─────────────────────────── */
+  .head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10mm;
+    padding-bottom: 5mm;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .name {
+    font-size: 30pt;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1;
+  }
+
+  .name .dot { color: var(--accent); }
+
+  .role {
+    margin-top: 2.5mm;
+    font-size: 11pt;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--muted);
+  }
+
+  .role .hl {
+    background: var(--lime);
+    color: var(--ink);
+    padding: 0 1.5mm;
+    border-radius: 1mm;
+    font-weight: 600;
+  }
+
+  .contact {
+    text-align: right;
+    font-size: 8.4pt;
+    line-height: 1.75;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .contact a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .contact b { color: var(--ink); font-weight: 600; }
+
+  /* ── Layout ─────────────────────────── */
+  .body {
+    display: grid;
+    grid-template-columns: 1.75fr 1fr;
+    gap: 9mm;
+    margin-top: 6mm;
+  }
+
+  .label {
+    display: flex;
+    align-items: center;
+    gap: 2.5mm;
+    font-size: 7.6pt;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .label::before {
+    content: "";
+    width: 6mm;
+    height: 1.2pt;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  section + section { margin-top: 6mm; }
+
+  p + p { margin-top: 2.2mm; }
+
+  .summary {
+    margin-top: 3mm;
+    color: #333333;
+  }
+
+  /* ── Experience ─────────────────────── */
+  .job { margin-top: 4mm; }
+  .job + .job { margin-top: 4.5mm; padding-top: 4.5mm; border-top: 1px solid var(--line); }
+
+  .job-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4mm;
+  }
+
+  .job-title { font-size: 11pt; font-weight: 600; letter-spacing: -0.015em; }
+
+  .job-dates {
+    font-size: 8pt;
+    font-weight: 500;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .job-co {
+    margin-top: 0.6mm;
+    font-size: 8.8pt;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .job ul { margin-top: 2mm; list-style: none; }
+  .job li { position: relative; padding-left: 4mm; color: #3a3a3a; }
+  .job li + li { margin-top: 1.2mm; }
+  .job li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1.7mm;
+    width: 1.4mm;
+    height: 1.4mm;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  /* ── Sidebar ────────────────────────── */
+  .skill-group { margin-top: 3.5mm; }
+  .skill-group h4 {
+    font-size: 8.6pt;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .skill-group p {
+    margin-top: 0.6mm;
+    font-size: 8.4pt;
+    color: var(--muted);
+  }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 1.5mm; margin-top: 3mm; }
+
+  .tag {
+    border: 1px solid var(--line);
+    border-radius: 10mm;
+    padding: 1mm 2.6mm;
+    font-size: 7.8pt;
+    font-weight: 500;
+  }
+
+  .tag.fill { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+  .tag.lime { background: var(--lime); border-color: var(--lime); color: var(--ink); }
+
+  .meta-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 3mm;
+    font-size: 8.4pt;
+    padding: 1.4mm 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .meta-row:first-of-type { border-top: 1px solid var(--line); }
+  .meta-row span:first-child { color: var(--muted); }
+  .meta-row span:last-child { font-weight: 500; }
+
+  .links { margin-top: 3mm; font-size: 8.4pt; }
+  .links a { display: block; color: var(--accent); text-decoration: none; font-weight: 500; }
+  .links a + a { margin-top: 1.2mm; }
+
+  /* ── Footer ─────────────────────────── */
+  .foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 7mm;
+    padding-top: 3mm;
+    border-top: 1px solid var(--line);
+    font-size: 7.6pt;
+    color: var(--light);
+  }
+
+  .shapes { display: flex; gap: 2mm; }
+  .shapes svg { width: 3.6mm; height: 3.6mm; }
+</style>
+</head>
+<body>
+
+  <header class="head">
+    <div>
+      <h1 class="name">Yevhen Harmash<span class="dot">.</span></h1>
+      <p class="role">Senior Frontend Engineer · <span class="hl">React &amp; TypeScript</span></p>
+    </div>
+    <div class="contact">
+      <div><b>London, United Kingdom</b></div>
+      <div><a href="mailto:euggarm@gmail.com">euggarm@gmail.com</a></div>
+            <div>+44 7785 982425</div>
+      <div><a href="https://www.linkedin.com/in/yevhen-harmash/">linkedin.com/in/yevhen-harmash</a></div>
+    </div>
+  </header>
+
+  <div class="body">
+    <main>
+      <section>
+        <p class="label">Profile</p>
+        <div class="summary">
+          <p>Senior Frontend Engineer with a decade of building for the web. As a member of Scrum and Kanban teams I've developed a variety of products: corporate websites, a clinical dental notes application, a public food delivery e-commerce platform, and several companies' in-house CMS solutions.</p>
+          <p>I've worked in both strictly regulated environments and fast-moving companies, responsible for taking features from implementation to production and making sure they delivered a great customer experience. Along the way I've learned from great mentors and mentored junior developers myself, as I genuinely enjoy sharing knowledge and helping others grow.</p>
+          <p>AI-assisted development is now part of my daily workflow, with tools such as Cursor and Claude Code helping me automate repetitive tasks, explore ideas and designs faster, and accelerate software delivery.</p>
+        </div>
+      </section>
+
+      <section>
+        <p class="label">Experience</p>
+
+        <article class="job">
+          <div class="job-top">
+            <h3 class="job-title">Senior Frontend Engineer</h3>
+            <span class="job-dates">Sep 2022 – Present</span>
+          </div>
+          <p class="job-co">Kiroku · London, United Kingdom</p>
+          <ul>
+            <li>Build and maintain Kiroku's clinical dental notes application, used by dental practices day to day.</li>
+            <li>Take features from implementation through to production within a strictly regulated healthcare environment.</li>
+            <li>Work in React and TypeScript across the product, with a focus on consistent, predictable interfaces.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-top">
+            <h3 class="job-title">Frontend Engineer</h3>
+            <span class="job-dates">Earlier roles</span>
+          </div>
+          <p class="job-co">E-commerce &amp; product teams</p>
+          <ul>
+            <li>Developed a public food delivery e-commerce platform as part of a Scrum team: catalogue, cart and checkout.</li>
+            <li>Built in-house CMS solutions for several companies, with custom editors and role-based publishing workflows.</li>
+            <li>Delivered corporate websites end to end, and mentored junior developers on the team.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section>
+        <p class="label">Education</p>
+        <article class="job">
+          <div class="job-top">
+            <h3 class="job-title">Taras Shevchenko National University of Kyiv</h3>
+            <span class="job-dates">2013 – 2017</span>
+          </div>
+          <p class="job-co">Kyiv, Ukraine</p>
+        </article>
+      </section>
+    </main>
+
+    <aside>
+      <section>
+        <p class="label">Core stack</p>
+        <div class="tags">
+          <span class="tag fill">React</span>
+          <span class="tag fill">TypeScript</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">Vite</span>
+          <span class="tag">Tailwind</span>
+          <span class="tag">Storybook</span>
+          <span class="tag">Jest</span>
+          <span class="tag">Cypress</span>
+          <span class="tag">Scrum</span>
+          <span class="tag">Kanban</span>
+          <span class="tag lime">AI-assisted dev</span>
+        </div>
+      </section>
+
+      <section>
+        <p class="label">Detail</p>
+        <div class="skill-group">
+          <h4>React</h4>
+          <p>v16–19, hooks, class component support for v16.7 and above</p>
+        </div>
+        <div class="skill-group">
+          <h4>State management</h4>
+          <p>Reduxless: React Context, Jotai, Recoil · Redux: hooks &amp; toolkit</p>
+        </div>
+        <div class="skill-group">
+          <h4>Ways of working</h4>
+          <p>Agile delivery in Scrum and Kanban teams, from planning through to production</p>
+        </div>
+        <div class="skill-group">
+          <h4>AI-enhanced workflow</h4>
+          <p>LLM integration and AI-assisted development with Cursor and Claude Code</p>
+        </div>
+      </section>
+
+      <section>
+        <p class="label">Languages</p>
+        <div style="margin-top:3mm">
+          <div class="meta-row"><span>English</span><span>Professional</span></div>
+          <div class="meta-row"><span>Ukrainian</span><span>Native</span></div>
+          <div class="meta-row"><span>Russian</span><span>Native</span></div>
+        </div>
+      </section>
+
+      <section>
+        <p class="label">Selected work</p>
+        <div class="links">
+          <a href="https://www.linkedin.com/in/yevhen-harmash/">Kiroku · dental notes app</a>
+          <a href="https://www.linkedin.com/in/yevhen-harmash/">E-commerce platform</a>
+          <a href="https://www.linkedin.com/in/yevhen-harmash/">In-house CMS solutions</a>
+        </div>
+      </section>
+
+      <section>
+        <p class="label">Interests</p>
+        <div class="tags">
+          <span class="tag">Writing</span>
+          <span class="tag">Calisthenics</span>
+          <span class="tag">Theatre</span>
+          <span class="tag">YouTube</span>
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  <div class="foot">
+    <span>Yevhen Harmash · Curriculum Vitae</span>
+    <div class="shapes" aria-hidden="true">
+      <svg viewBox="0 0 40 40" fill="#3d2aff"><path d="M20 0c1.6 12.4 7.6 18.4 20 20-12.4 1.6-18.4 7.6-20 20-1.6-12.4-7.6-18.4-20-20 12.4-1.6 18.4-7.6 20-20z"/></svg>
+      <svg viewBox="0 0 40 40" fill="#c6f035"><path d="M20 3l4.9 11.1L36 19l-11.1 4.9L20 35l-4.9-11.1L4 19l11.1-4.9z"/></svg>
+      <svg viewBox="0 0 40 40" fill="#111111"><path d="M17 1h6v16h16v6H23v16h-6V23H1v-6h16z"/></svg>
+    </div>
+    <span>euggarm@gmail.com</span>
+  </div>
+
+</body>
+</html>
