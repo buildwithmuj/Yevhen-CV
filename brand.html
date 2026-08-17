@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yevhen Brand Guide</title>
+<meta name="description" content="The visual identity behind yevhen. — palette, typography, motifs, components, motion and voice.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --accent: #3d2aff;
+    --accent-hover: #2d1cd9;
+    --lime: #c6f035;
+    --lime-text: #101010;
+    --bg: #ffffff;
+    --text: #111111;
+    --muted: #6b6b6b;
+    --gray-mid: #a5a5a5;
+    --gray-light: #d2d2d2;
+    --pill-bg: #111111;
+    --pill-text: #ffffff;
+    --line: #e2e2e2;
+    --panel: #141417;
+    --panel-line: rgba(255, 255, 255, 0.18);
+    --card-dark: #0f0f13;
+  }
+
+  [data-theme="dark"] {
+    --accent: #5a48ff;
+    --accent-hover: #7161ff;
+    --bg: #0e0e10;
+    --text: #f4f4f4;
+    --muted: #8f8f8f;
+    --gray-mid: #6a6a6a;
+    --gray-light: #3a3a3c;
+    --pill-bg: #f4f4f4;
+    --pill-text: #111111;
+    --line: #2c2c2e;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --accent: #5a48ff;
+      --accent-hover: #7161ff;
+      --bg: #0e0e10;
+      --text: #f4f4f4;
+      --muted: #8f8f8f;
+      --gray-mid: #6a6a6a;
+      --gray-light: #3a3a3c;
+      --pill-bg: #f4f4f4;
+      --pill-text: #111111;
+      --line: #2c2c2e;
+    }
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .wrap {
+    max-width: 66rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ── Cover ───────────────────────────────── */
+  .cover {
+    padding: 5.5rem 0 4rem;
+  }
+
+  .cover-mark {
+    font-size: 1.375rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .cover-mark .dot { color: var(--accent); }
+
+  .cover h1 {
+    margin-top: 2.5rem;
+    font-size: clamp(2.75rem, 7vw, 5.5rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  .cover h1 .ringed {
+    position: relative;
+    display: inline-block;
+  }
+
+  .cover h1 .ringed svg {
+    position: absolute;
+    left: -8%;
+    top: -22%;
+    width: 116%;
+    height: 148%;
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  .cover h1 .ringed ellipse {
+    fill: none;
+    stroke: var(--lime);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 330;
+    stroke-dashoffset: 330;
+    animation: draw-ring 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+  }
+
+  .cover p {
+    margin-top: 1.75rem;
+    max-width: 44ch;
+    font-size: 1.0625rem;
+    color: var(--muted);
+  }
+
+  .cover-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.75rem;
+    margin-top: 2.25rem;
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+
+  .cover-meta b { color: var(--text); font-weight: 600; }
+
+  @keyframes draw-ring { to { stroke-dashoffset: 0; } }
+
+  /* ── Sections ────────────────────────────── */
+  section { padding: 3.5rem 0; }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 2rem;
+    height: 2px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  section h2 {
+    margin-top: 1rem;
+    font-size: clamp(1.75rem, 3.6vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+
+  section > .wrap > p.intro,
+  .intro {
+    margin-top: 1rem;
+    max-width: 60ch;
+    color: var(--muted);
+  }
+
+  .divider {
+    max-width: 66rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  .divider::before, .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line));
+  }
+
+  .divider::after { background: linear-gradient(90deg, var(--line), transparent); }
+
+  .divider i {
+    position: relative;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .divider.lime i { background: var(--lime); }
+
+  .divider i::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 1px solid currentColor;
+    color: var(--accent);
+    animation: pulse-ring 3.4s ease-out infinite;
+  }
+
+  .divider.lime i::after { color: var(--lime); }
+
+  @keyframes pulse-ring {
+    0% { transform: scale(0.6); opacity: 0.9; }
+    70%, 100% { transform: scale(2.8); opacity: 0; }
+  }
+
+  /* ── Swatches ────────────────────────────── */
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .swatch {
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    overflow: hidden;
+    cursor: copy;
+    transition: transform 0.2s ease;
+  }
+
+  .swatch:hover { transform: translateY(-3px); }
+
+  .swatch .chip { height: 5.5rem; }
+
+  .swatch .info { padding: 0.85rem 1rem 1rem; }
+
+  .swatch .info b {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .swatch .info span {
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .swatch .info em {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.75rem;
+    font-style: normal;
+    color: var(--muted);
+  }
+
+  .copied-note {
+    margin-top: 0.85rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .copied-note b { color: var(--accent); font-weight: 600; }
+
+  /* Token table */
+  .tok-table {
+    width: 100%;
+    margin-top: 2rem;
+    border-collapse: collapse;
+    font-size: 0.8125rem;
+  }
+
+  .tok-table caption {
+    text-align: left;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-bottom: 0.75rem;
+  }
+
+  .tok-table th {
+    text-align: left;
+    font-weight: 600;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--text);
+  }
+
+  .tok-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--line);
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+  }
+
+  .tok-table td:first-child { color: var(--text); font-weight: 500; }
+
+  .tok-table .dotv {
+    display: inline-block;
+    width: 0.8rem; height: 0.8rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--line);
+    vertical-align: -0.12em;
+    margin-right: 0.5rem;
+  }
+
+  .table-scroll { overflow-x: auto; }
+
+  /* ── Type specimens ──────────────────────── */
+  .spec {
+    margin-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .spec-row {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    gap: 2rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+
+  .spec-meta {
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.7;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .spec-meta b {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .t-display { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 500; letter-spacing: -0.035em; line-height: 1.08; }
+  .t-display .mid { color: var(--gray-mid); }
+  .t-display .light { color: var(--gray-light); }
+  .t-section { font-size: clamp(2rem, 4.5vw, 3.25rem); font-weight: 500; letter-spacing: -0.04em; line-height: 1.05; text-transform: uppercase; }
+  .t-lead { font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-weight: 500; letter-spacing: -0.02em; line-height: 1.35; }
+  .t-lead .mid { color: var(--gray-mid); }
+  .t-body { font-size: 0.9375rem; line-height: 1.6; max-width: 58ch; color: var(--muted); }
+  .t-eyebrow { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .t-num { font-size: 1.25rem; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  .t-num span { color: var(--gray-mid); font-weight: 500; }
+
+  /* ── Motifs ──────────────────────────────── */
+  .motif-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .motif {
+    border: 1px solid var(--line);
+    border-radius: 1.25rem;
+    padding: 1.75rem 1.5rem 1.5rem;
+  }
+
+  .motif .demo {
+    min-height: 5.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .motif h3 { font-size: 1rem; font-weight: 600; margin-top: 1rem; }
+  .motif p { margin-top: 0.35rem; font-size: 0.8125rem; color: var(--muted); }
+
+  .ringword {
+    position: relative;
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+  }
+
+  .ringword svg {
+    position: absolute;
+    left: -9%; top: -24%;
+    width: 118%; height: 150%;
+    overflow: visible;
+  }
+
+  .ringword ellipse {
+    fill: none;
+    stroke: var(--lime);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 330;
+    stroke-dashoffset: 330;
+  }
+
+  .motif:hover .ringword ellipse { animation: draw-ring 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+
+  .hl-demo { font-size: 1.375rem; font-weight: 500; letter-spacing: -0.02em; }
+
+  .hl {
+    background: var(--lime);
+    color: var(--lime-text);
+    border-radius: 0.12em;
+    padding: 0 0.12em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  .mark-demo { font-size: 2.25rem; font-weight: 700; letter-spacing: -0.02em; }
+  .mark-demo .dot { color: var(--accent); }
+
+  .cursor-badge { position: relative; animation: drift 5s ease-in-out infinite; }
+  .cursor-badge svg { position: absolute; top: -10px; left: -6px; width: 15px; height: 15px; fill: var(--lime); }
+  .cursor-badge .name {
+    display: inline-block;
+    background: var(--lime);
+    color: var(--lime-text);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    margin-left: 8px;
+  }
+
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(10px, -8px); }
+  }
+
+  .float-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem; height: 3rem;
+    border-radius: 0.9rem;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    animation: chip-float 5s ease-in-out infinite;
+  }
+
+  .float-chip.fill { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+  .float-chip.limef { background: var(--lime); border-color: var(--lime); color: var(--lime-text); animation-delay: -2.4s; }
+
+  @keyframes chip-float {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-9px) rotate(2deg); }
+  }
+
+  .divider-demo { width: 100%; display: flex; align-items: center; gap: 0.9rem; }
+  .divider-demo::before, .divider-demo::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .divider-demo i {
+    position: relative; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); flex-shrink: 0;
+  }
+  .divider-demo i::after {
+    content: ""; position: absolute; inset: -3px; border-radius: 50%;
+    border: 1px solid var(--accent);
+    animation: pulse-ring 3.4s ease-out infinite;
+  }
+
+  /* ── Components ──────────────────────────── */
+  .comp-block { margin-top: 2.25rem; }
+
+  .comp-block h3 { font-size: 1.0625rem; font-weight: 600; }
+  .comp-block > p { margin-top: 0.3rem; font-size: 0.8125rem; color: var(--muted); max-width: 60ch; }
+
+  .comp-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.1rem;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #ffffff;
+    border: none;
+    font-family: inherit;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 0.75rem 1.375rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+  .btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: var(--pill-bg);
+    color: var(--pill-text);
+    border: none;
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.9rem 1.6rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .btn-pill:hover { transform: translateY(-2px); }
+
+  .btn-lime {
+    background: var(--lime);
+    color: var(--lime-text);
+    border: none;
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.95rem 1.6rem;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+
+  .btn-lime:hover { transform: translateY(-2px); filter: brightness(1.06); }
+
+  .icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.375rem; height: 2.375rem;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    color: var(--text);
+    background: none;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .icon-btn svg { width: 1rem; height: 1rem; fill: currentColor; }
+
+  .icon-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #ffffff;
+    transform: translateY(-1px);
+  }
+
+  .tag {
+    display: inline-block;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.6rem 1.15rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  .tag.fill { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+  .tag.dark { background: var(--pill-bg); border-color: var(--pill-bg); color: var(--pill-text); }
+  .tag.limet { background: var(--lime); border-color: var(--lime); color: var(--lime-text); }
+
+  .panel-demo {
+    margin-top: 1.1rem;
+    background: var(--panel);
+    color: #f5f5f5;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 1.5rem;
+    padding: 1.75rem;
+    max-width: 26rem;
+  }
+
+  .panel-demo label {
+    display: block;
+    font-size: 0.75rem;
+    color: #9a9a9e;
+    margin-bottom: 0.35rem;
+  }
+
+  .panel-demo input {
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--panel-line);
+    color: #f5f5f5;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.55rem 0;
+    outline: none;
+    transition: border-color 0.25s ease;
+  }
+
+  .panel-demo input:focus { border-bottom-color: var(--lime); }
+
+  .card-demo {
+    margin-top: 1.1rem;
+    position: relative;
+    max-width: 24rem;
+    min-height: 15rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    color: #f5f5f5;
+    background:
+      linear-gradient(180deg, rgba(15, 15, 19, 0) 40%, rgba(15, 15, 19, 0.62) 100%),
+      radial-gradient(135% 115% at 100% 100%, rgb(61 42 255 / 0.7) 0%, rgb(61 42 255 / 0.16) 48%, rgb(61 42 255 / 0) 74%),
+      var(--card-dark);
+  }
+
+  .card-demo > * { position: relative; }
+  .card-demo .cl { font-size: 1rem; font-weight: 600; }
+  .card-demo .cs { margin-top: 0.2rem; font-size: 0.875rem; color: rgba(255,255,255,0.55); }
+  .card-demo .ct { margin-top: 1.5rem; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
+  .card-demo .cm { margin-top: auto; padding-top: 1.25rem; font-size: 0.8125rem; color: rgba(255,255,255,0.55); }
+  .card-demo .cn { font-variant-numeric: tabular-nums; color: rgba(255,255,255,0.52); }
+  .card-demo .cn b { color: rgba(255,255,255,0.9); font-weight: 600; }
+
+  /* ── Do / Don't ──────────────────────────── */
+  .dd-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .dd {
+    border: 1px solid var(--line);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+  }
+
+  .dd h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .dd h3 i {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dd.yes h3 i { background: var(--lime); }
+  .dd.no h3 i { background: var(--accent); }
+
+  .dd ul { margin-top: 1rem; list-style: none; }
+
+  .dd li {
+    position: relative;
+    padding-left: 1.1rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .dd li + li { margin-top: 0.55rem; }
+
+  .dd li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0.62em;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--gray-mid);
+  }
+
+  /* ── Voice ───────────────────────────────── */
+  .voice-pair {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .voice-card {
+    border: 1px solid var(--line);
+    border-radius: 1rem;
+    padding: 1.25rem 1.4rem;
+    font-size: 0.9375rem;
+  }
+
+  .voice-card .vlabel {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.6rem;
+  }
+
+  .voice-card.good .vlabel { color: var(--accent); }
+  .voice-card q { quotes: "\201C" "\201D"; color: var(--text); }
+  .voice-card.bad q { color: var(--muted); text-decoration: line-through; text-decoration-thickness: 1px; }
+
+  /* ── Footer ──────────────────────────────── */
+  .guide-foot {
+    padding: 3rem 0 3.5rem;
+    font-size: 0.8125rem;
+    color: var(--muted);
+  }
+
+  .guide-foot .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    border-top: 1px solid var(--line);
+    padding-top: 1.75rem;
+  }
+
+  /* ── Theme toggle ────────────────────────── */
+  .theme-toggle {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    z-index: 10;
+  }
+
+  .theme-toggle .sun { display: none; }
+  [data-theme="dark"] .theme-toggle .sun { display: block; }
+  [data-theme="dark"] .theme-toggle .moon { display: none; }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-toggle .sun { display: block; }
+    :root:not([data-theme="light"]) .theme-toggle .moon { display: none; }
+  }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    html { scroll-behavior: auto; }
+  }
+
+  @media (max-width: 720px) {
+    .wrap, .divider { padding-inline: 1.25rem; }
+    .cover { padding: 4rem 0 3rem; }
+    .spec-row { grid-template-columns: 1fr; gap: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+  <button class="icon-btn theme-toggle" aria-label="Toggle dark mode">
+    <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="sun" viewBox="0 0 24 24"><path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1zm0-16a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1zm9 8a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2h1zM4 11a1 1 0 1 1 0 2H3a1 1 0 1 1 0-2h1zm14.3-6.3a1 1 0 0 1 0 1.4l-.7.7a1 1 0 1 1-1.42-1.4l.71-.71a1 1 0 0 1 1.41 0zM7.82 16.18a1 1 0 0 1 0 1.41l-.71.71a1 1 0 0 1-1.41-1.41l.7-.71a1 1 0 0 1 1.42 0zm10.48 2.12a1 1 0 0 1-1.41 0l-.71-.7a1 1 0 0 1 1.42-1.42l.7.71a1 1 0 0 1 0 1.41zM7.11 5.7a1 1 0 0 1-1.41 1.4L5 6.4A1 1 0 0 1 6.4 5l.7.7z"/></svg>
+  </button>
+
+  <header class="cover">
+    <div class="wrap">
+      <p class="cover-mark">yevhen<span class="dot">.</span></p>
+      <h1>One face, two accents, and a <span class="ringed">lime<svg viewBox="0 0 200 60" aria-hidden="true"><ellipse cx="100" cy="30" rx="96" ry="26" transform="rotate(-2 100 30)"/></svg></span> ring</h1>
+      <p>The visual identity behind Yevhen Harmash's portfolio, CV and PDF. Everything on this page is set in the system it documents: same tokens, same type, same motion.</p>
+      <div class="cover-meta">
+        <span><b>Version</b> 1.0</span>
+        <span><b>Issued</b> August 2026</span>
+        <span><b>Applies to</b> site, CV overlay, PDF</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="divider" aria-hidden="true"><i></i></div>
+
+  <section id="logo">
+    <div class="wrap">
+      <p class="eyebrow">01 · Wordmark</p>
+      <h2>Lowercase name, ultramarine full stop</h2>
+      <p class="intro">The mark is the name set in DM Sans Bold with a terminating period in the accent colour. The period is the brand: it says the sentence is finished, the work shipped.</p>
+      <div class="motif-grid">
+        <div class="motif">
+          <div class="demo"><span class="mark-demo">yevhen<span class="dot">.</span></span></div>
+          <h3>Primary mark</h3>
+          <p>Lowercase, weight 700, letter-spacing &minus;0.02em. Used in the header and anywhere the brand signs small.</p>
+        </div>
+        <div class="motif">
+          <div class="demo"><span class="mark-demo" style="font-size:1.6rem;">Yevhen Harmash<span class="dot">.</span></span></div>
+          <h3>Formal mark</h3>
+          <p>Full name with the same accent period. Used on the CV and PDF where a document signature is expected.</p>
+        </div>
+        <div class="motif">
+          <div class="demo"><span class="mark-demo" style="letter-spacing:0.2em; color: var(--gray-mid);">yevhen.</span></div>
+          <h3>Never</h3>
+          <p>No letter-spacing on the mark, no uppercase, no recolouring the period. The dot is always the accent, never lime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider lime" aria-hidden="true"><i></i></div>
+
+  <section id="color">
+    <div class="wrap">
+      <p class="eyebrow">02 · Colour</p>
+      <h2>Neutral ground, one loud pair</h2>
+      <p class="intro">The palette is neutral-dominant. Two accents carry all the energy: electric ultramarine does the work (actions, links, structure) and acid lime does the punctuation (highlights, status, the ring). Never let them compete in the same moment.</p>
+
+      <div class="swatch-grid" id="swatches">
+        <div class="swatch" data-hex="#3d2aff">
+          <div class="chip" style="background:#3d2aff"></div>
+          <div class="info"><b>Electric ultramarine</b><span>#3D2AFF</span><em>Actions, links, accents. Brightens to #5A48FF on dark grounds.</em></div>
+        </div>
+        <div class="swatch" data-hex="#c6f035">
+          <div class="chip" style="background:#c6f035"></div>
+          <div class="info"><b>Acid lime</b><span>#C6F035</span><em>Highlights, badges, the ring. Text on lime is #101010.</em></div>
+        </div>
+        <div class="swatch" data-hex="#111111">
+          <div class="chip" style="background:#111111"></div>
+          <div class="info"><b>Ink</b><span>#111111</span><em>Text on light. Also the dark pill fill.</em></div>
+        </div>
+        <div class="swatch" data-hex="#0e0e10">
+          <div class="chip" style="background:#0e0e10"></div>
+          <div class="info"><b>Night</b><span>#0E0E10</span><em>Dark theme ground.</em></div>
+        </div>
+        <div class="swatch" data-hex="#141417">
+          <div class="chip" style="background:#141417"></div>
+          <div class="info"><b>Panel</b><span>#141417</span><em>Dark surfaces that stay dark in both themes: contact panel, CV bar.</em></div>
+        </div>
+        <div class="swatch" data-hex="#6b6b6b">
+          <div class="chip" style="background:#6b6b6b"></div>
+          <div class="info"><b>Muted</b><span>#6B6B6B</span><em>Secondary text on light. #8F8F8F on dark.</em></div>
+        </div>
+        <div class="swatch" data-hex="#a5a5a5">
+          <div class="chip" style="background:#a5a5a5"></div>
+          <div class="info"><b>Grey mid</b><span>#A5A5A5</span><em>De-emphasised words inside headlines.</em></div>
+        </div>
+        <div class="swatch" data-hex="#e2e2e2">
+          <div class="chip" style="background:#e2e2e2"></div>
+          <div class="info"><b>Hairline</b><span>#E2E2E2</span><em>Borders and rules on light. #2C2C2E on dark.</em></div>
+        </div>
+      </div>
+      <p class="copied-note" id="copyNote">Click any swatch to copy its hex.</p>
+
+      <div class="table-scroll">
+        <table class="tok-table">
+          <caption>Token map · light → dark</caption>
+          <tr><th>Token</th><th>Light</th><th>Dark</th><th>Role</th></tr>
+          <tr><td>--accent</td><td><i class="dotv" style="background:#3d2aff"></i>#3D2AFF</td><td><i class="dotv" style="background:#5a48ff"></i>#5A48FF</td><td>Actions, links, rings, bullets</td></tr>
+          <tr><td>--accent-hover</td><td><i class="dotv" style="background:#2d1cd9"></i>#2D1CD9</td><td><i class="dotv" style="background:#7161ff"></i>#7161FF</td><td>Hover state of the above</td></tr>
+          <tr><td>--badge-bg</td><td><i class="dotv" style="background:#c6f035"></i>#C6F035</td><td><i class="dotv" style="background:#c6f035"></i>#C6F035</td><td>Lime never shifts between themes</td></tr>
+          <tr><td>--bg</td><td><i class="dotv" style="background:#ffffff"></i>#FFFFFF</td><td><i class="dotv" style="background:#0e0e10"></i>#0E0E10</td><td>Page ground</td></tr>
+          <tr><td>--text</td><td><i class="dotv" style="background:#111111"></i>#111111</td><td><i class="dotv" style="background:#f4f4f4"></i>#F4F4F4</td><td>Primary text</td></tr>
+          <tr><td>--muted</td><td><i class="dotv" style="background:#6b6b6b"></i>#6B6B6B</td><td><i class="dotv" style="background:#8f8f8f"></i>#8F8F8F</td><td>Secondary text</td></tr>
+          <tr><td>--gray-mid</td><td><i class="dotv" style="background:#a5a5a5"></i>#A5A5A5</td><td><i class="dotv" style="background:#6a6a6a"></i>#6A6A6A</td><td>Softened headline words</td></tr>
+          <tr><td>--gray-light</td><td><i class="dotv" style="background:#d2d2d2"></i>#D2D2D2</td><td><i class="dotv" style="background:#3a3a3c"></i>#3A3A3C</td><td>Faintest headline words, unlit quote text</td></tr>
+          <tr><td>--pill-bg / --pill-text</td><td>#111111 / #FFFFFF</td><td>#F4F4F4 / #111111</td><td>Inverted pills (menu, CTAs)</td></tr>
+          <tr><td>--icon-border</td><td><i class="dotv" style="background:#e2e2e2"></i>#E2E2E2</td><td><i class="dotv" style="background:#2c2c2e"></i>#2C2C2E</td><td>Hairlines, outlined buttons</td></tr>
+          <tr><td>--card-surface</td><td><i class="dotv" style="background:#ffffff"></i>#FFFFFF</td><td><i class="dotv" style="background:#17171a"></i>#17171A</td><td>Raised cards</td></tr>
+        </table>
+      </div>
+
+      <div class="table-scroll">
+        <table class="tok-table">
+          <caption>Fixed surfaces · identical in both themes</caption>
+          <tr><th>Surface</th><th>Value</th><th>Used for</th></tr>
+          <tr><td>Panel</td><td><i class="dotv" style="background:#141417"></i>#141417</td><td>Contact panel, CV toolbar, dark form</td></tr>
+          <tr><td>Project card</td><td><i class="dotv" style="background:#0f0f13"></i>#0F0F13</td><td>Project rail cards and detail dialog, under a tint bloom</td></tr>
+          <tr><td>Card tints</td><td>61 42 255 · 198 240 53 · 90 72 255</td><td>RGB triplets for the radial bloom, alternating per card</td></tr>
+          <tr><td>Panel hairline</td><td>rgba(255, 255, 255, 0.18)</td><td>Rules and input underlines inside dark panels</td></tr>
+        </table>
+      </div>
+
+      <div class="dd-grid">
+        <div class="dd yes">
+          <h3><i></i>Colour rules</h3>
+          <ul>
+            <li>Roughly 90% neutral, 8% ultramarine, 2% lime per view.</li>
+            <li>Lime is punctuation: one highlighted phrase, one ring, one badge. Never a text colour on white.</li>
+            <li>Text on lime is always near-black #101010.</li>
+            <li>On dark grounds the accent steps up to #5A48FF; #3D2AFF sinks into black.</li>
+            <li>Semantic red (#FF6B6B) exists only for form validation and is not a brand colour.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><i></i></div>
+
+  <section id="type">
+    <div class="wrap">
+      <p class="eyebrow">03 · Typography</p>
+      <h2>DM Sans, and nothing else</h2>
+      <p class="intro">One family across site, CV and PDF: DM Sans (variable, weights 400–700, italic for a single word of emphasis at most). Display sizes track tight; uppercase labels track wide; numbers that line up use tabular figures.</p>
+
+      <div class="spec">
+        <div class="spec-row">
+          <div class="spec-meta"><b>Display</b>clamp(2.5rem, 7.2vw, 6.25rem)<br>500 · &minus;0.035em · 1.08</div>
+          <div class="t-display"><span class="light">A</span> <span class="mid">great</span> product</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-meta"><b>Section title</b>clamp(2.25rem, 6.5vw, 4.5rem)<br>500 · &minus;0.04em · uppercase</div>
+          <div class="t-section">Projects</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-meta"><b>Lead</b>clamp(1.25rem, 2.2vw, 1.75rem)<br>500 · &minus;0.02em · 1.35</div>
+          <div class="t-lead">A decade of shipping<span class="mid">, from regulated healthcare to fast-moving teams</span></div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-meta"><b>Body</b>0.9375rem<br>400 · 1.6 · max 60ch</div>
+          <div class="t-body">Body copy stays at 15px with a relaxed line height. Secondary information takes the muted grey; a sentence never carries more than one colour change.</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-meta"><b>Eyebrow</b>0.8125rem<br>600 · +0.12em · uppercase</div>
+          <div class="t-eyebrow">02 · Projects</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-meta"><b>Figures</b>tabular-nums<br>for sequences and data</div>
+          <div class="t-num"><b>01</b> <span>/ 05</span></div>
+        </div>
+      </div>
+
+      <div class="dd-grid">
+        <div class="dd yes">
+          <h3><i></i>Type rules</h3>
+          <ul>
+            <li>Weight 500 for display, 600 for card and job titles, 700 only for the wordmark and micro-labels.</li>
+            <li>Grey shading inside headlines (ink → mid → light) creates hierarchy without a second colour.</li>
+            <li>Form inputs never drop below 16px, so iOS Safari does not zoom on focus.</li>
+            <li>Italic exists for one word at a time, as in &ldquo;Let's <em>talk</em>.&rdquo;</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider lime" aria-hidden="true"><i></i></div>
+
+  <section id="motifs">
+    <div class="wrap">
+      <p class="eyebrow">04 · Signature motifs</p>
+      <h2>The details that say &ldquo;yevhen.&rdquo;</h2>
+      <p class="intro">Five recurring devices tie every surface together. Each carries meaning; none is pure decoration.</p>
+
+      <div class="motif-grid">
+        <div class="motif">
+          <div class="demo">
+            <span class="ringword">Skills<svg viewBox="0 0 200 60" aria-hidden="true"><ellipse cx="100" cy="30" rx="96" ry="26" transform="rotate(-2 100 30)"/></svg></span>
+          </div>
+          <h3>The lime ring</h3>
+          <p>A hand-drawn ellipse that draws itself around the active thing: the open section, the hovered menu link. Rotated &minus;2&deg;, stroke 2.5, drawn in 0.9s. Hover this card to see it.</p>
+        </div>
+        <div class="motif">
+          <div class="demo"><span class="hl-demo">a great <span class="hl">customer experience</span></span></div>
+          <h3>The highlighter</h3>
+          <p>One phrase per statement gets the lime marker. Padding clones across line wraps so the box never breaks ragged.</p>
+        </div>
+        <div class="motif">
+          <div class="demo">
+            <div class="cursor-badge">
+              <svg viewBox="0 0 24 24"><path d="M4 2l16 7.5-7 2.5-2.5 7z"/></svg>
+              <span class="name">Yevhen</span>
+            </div>
+          </div>
+          <h3>The cursor badge</h3>
+          <p>A collaborative-cursor chip that signs the hero, drifting on a 5s loop. The author is present in the work.</p>
+        </div>
+        <div class="motif">
+          <div class="demo" style="gap: 1rem;">
+            <span class="float-chip fill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" width="22" height="22"><circle cx="12" cy="12" r="1.8" fill="currentColor" stroke="none"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg>
+            </span>
+            <span class="float-chip">TS</span>
+            <span class="float-chip limef">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9L12 2zm7 12 .95 3.05L23 18l-3.05.95L19 22l-.95-3.05L15 18l3.05-.95L19 14z"/></svg>
+            </span>
+          </div>
+          <h3>Floating chips</h3>
+          <p>Rounded-square skill chips drift in hero whitespace, balanced evenly above and below the headline. Emphasis follows the tag system: accent fill for core, lime for AI.</p>
+        </div>
+        <div class="motif">
+          <div class="demo"><div class="divider-demo"><i></i></div></div>
+          <h3>The pulse divider</h3>
+          <p>Sections break on a hairline fading toward a centre dot with a slow radar pulse, alternating ultramarine and lime down the page.</p>
+        </div>
+        <div class="motif">
+          <div class="demo"><span style="font-size:0.8125rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); display:flex; align-items:center; gap:0.6rem;"><span style="width:2rem;height:2px;background:var(--accent);display:inline-block;"></span>Label dash</span></div>
+          <h3>The label dash</h3>
+          <p>Uppercase labels open with a 2px accent stroke: the same gesture on the site's eyebrows and the PDF's section labels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><i></i></div>
+
+  <section id="components">
+    <div class="wrap">
+      <p class="eyebrow">05 · Components</p>
+      <h2>Buttons, tags, surfaces</h2>
+
+      <div class="comp-block">
+        <h3>Buttons</h3>
+        <p>Rectangular accent for the primary action, inverted pill for navigation-weight actions, lime only for the final commit of a form. All lift 1&ndash;2px on hover.</p>
+        <div class="comp-row">
+          <button class="btn-primary" type="button">View CV</button>
+          <button class="btn-pill" type="button">Talk to me about a project <span aria-hidden="true">&#8599;</span></button>
+          <button class="btn-lime" type="button">Send message</button>
+          <button class="icon-btn" type="button" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></button>
+        </div>
+      </div>
+
+      <div class="comp-block">
+        <h3>The tag system</h3>
+        <p>Four tiers of emphasis, and the tier is information: accent fill marks the core stack, black-and-white marks ways of working, lime marks the AI workflow, outline marks everything supporting.</p>
+        <div class="comp-row">
+          <span class="tag fill">React</span>
+          <span class="tag fill">TypeScript</span>
+          <span class="tag">Storybook</span>
+          <span class="tag">Cypress</span>
+          <span class="tag dark">Scrum</span>
+          <span class="tag dark">Kanban</span>
+          <span class="tag limet">Cursor &amp; Claude Code</span>
+        </div>
+      </div>
+
+      <div class="comp-block">
+        <h3>Dark panels</h3>
+        <p>Forms and the contact block live on #141417 in both themes, with white-alpha hairlines and underline inputs whose focus state is lime.</p>
+        <div class="panel-demo">
+          <label for="bg-demo-input">E-mail</label>
+          <input id="bg-demo-input" type="email" placeholder="jane@company.com">
+        </div>
+      </div>
+
+      <div class="comp-block">
+        <h3>Project cards</h3>
+        <p>Near-black cards with a brand-tinted bloom from the bottom-right corner, a scrim to keep the text legible, and a tabular sequence number. Radius 1.5rem; panels and pills share the same rounding logic (999px for pills, 1.375&ndash;1.75rem for surfaces, 0.5&ndash;1rem for small elements).</p>
+        <div class="card-demo">
+          <div><span class="cl">Kiroku</span><div class="cs">Clinical software, London</div></div>
+          <div class="ct">Clinical dental notes application</div>
+          <div class="cm">Sep 2022 &ndash; Present · React &amp; TypeScript <span class="cn" style="float:right"><b>01</b> / 05</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider lime" aria-hidden="true"><i></i></div>
+
+  <section id="motion">
+    <div class="wrap">
+      <p class="eyebrow">06 · Motion</p>
+      <h2>Slow ambience, quick answers</h2>
+      <p class="intro">Ambient motion is slow and loose; feedback is fast and tight. Everything collapses under prefers-reduced-motion.</p>
+      <div class="table-scroll">
+        <table class="tok-table">
+          <caption>Timing reference</caption>
+          <tr><th>Motion</th><th>Duration</th><th>Easing</th></tr>
+          <tr><td>Hover states</td><td>0.2s</td><td>ease</td></tr>
+          <tr><td>Section unfold</td><td>0.5s</td><td>cubic-bezier(0.4, 0, 0.2, 1)</td></tr>
+          <tr><td>Ring draw</td><td>0.9s</td><td>cubic-bezier(0.4, 0, 0.2, 1)</td></tr>
+          <tr><td>Springy pops (photo, dialogs)</td><td>0.35s</td><td>cubic-bezier(0.34, 1.56, 0.64, 1)</td></tr>
+          <tr><td>Chip float / badge drift</td><td>5s loop</td><td>ease-in-out</td></tr>
+          <tr><td>Pulse rings</td><td>2.6&ndash;3.4s loop</td><td>ease-out</td></tr>
+        </table>
+      </div>
+      <p class="intro">Behavioural signatures: sections start collapsed and unfold as they enter the viewport, but a visitor's manual toggle always wins; the scroll never fights the reader. The quote after the hero lights word by word as it scrolls into view.</p>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><i></i></div>
+
+  <section id="voice">
+    <div class="wrap">
+      <p class="eyebrow">07 · Voice</p>
+      <h2>Ship, don't boast</h2>
+      <p class="intro">Sentence case everywhere except uppercase labels. Active verbs, concrete nouns, no invented metrics, and no em dashes; commas, colons and full stops do the work.</p>
+      <div class="voice-pair">
+        <div class="voice-card good"><div class="vlabel">Say</div><q>I ship features from first commit to production.</q></div>
+        <div class="voice-card bad"><div class="vlabel">Not</div><q>Passionate results-driven developer leveraging synergies.</q></div>
+        <div class="voice-card good"><div class="vlabel">Say</div><q>A product to ship, a team to grow, or a role to fill?</q></div>
+        <div class="voice-card bad"><div class="vlabel">Not</div><q>+40% engagement</q> <span style="font-size:0.8125rem; color:var(--muted);">(unless the number is real)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="guide-foot">
+    <div class="wrap">
+      <span>yevhen<span style="color:var(--accent)">.</span> brand guide · v1.0</span>
+      <span>Set entirely in DM Sans, #3D2AFF and #C6F035</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var mq = window.matchMedia("(prefers-color-scheme: dark)");
+      var stored = null;
+      try { stored = localStorage.getItem("brand-theme"); } catch (e) {}
+      if (!root.getAttribute("data-theme") && (stored === "dark" || stored === "light")) {
+        root.setAttribute("data-theme", stored);
+      }
+
+      function currentTheme() {
+        var attr = root.getAttribute("data-theme");
+        if (attr === "dark" || attr === "light") return attr;
+        return mq.matches ? "dark" : "light";
+      }
+
+      document.querySelector(".theme-toggle").addEventListener("click", function () {
+        var next = currentTheme() === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem("brand-theme", next); } catch (e) {}
+      });
+
+      /* Click a swatch to copy its hex */
+      var note = document.getElementById("copyNote");
+      document.querySelectorAll(".swatch").forEach(function (sw) {
+        sw.addEventListener("click", function () {
+          var hex = sw.getAttribute("data-hex").toUpperCase();
+          function done() {
+            note.innerHTML = "Copied <b>" + hex + "</b> to your clipboard.";
+            window.setTimeout(function () {
+              note.textContent = "Click any swatch to copy its hex.";
+            }, 2200);
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(hex).then(done, done);
+          } else { done(); }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

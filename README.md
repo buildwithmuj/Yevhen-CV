@@ -22,6 +22,7 @@ python -m http.server 8000
 | --- | --- |
 | `index.html` | The site. Self-contained: styles, script and the profile photo (inlined as a data URI). |
 | `cv.html` | Print-layout CV. The source of truth for the PDF — edit here, then re-render. |
+| `brand.html` | The brand guide: palette, typography, motifs, components, motion and voice, set in the system it documents. |
 | `Yevhen-Harmash-CV.pdf` | The rendered CV, one A4 page. |
 | `assets/yevhen.jpg` | Original profile photo. Kept as the source; the site embeds its own copy. |
 | `tools/build-pdf.ps1` | Renders `cv.html` → `Yevhen-Harmash-CV.pdf` via headless Chrome or Edge. |
