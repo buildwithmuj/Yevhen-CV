@@ -1055,6 +1055,9 @@
       padding: 0 1.5mm;
       border-radius: 1mm;
       font-weight: 600;
+      /* Keeps the padding intact on both halves when it wraps on narrow screens */
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
     }
 
     .cv-contact {
@@ -1347,7 +1350,7 @@
       font-size: 0.8125rem;
       font-variant-numeric: tabular-nums;
       white-space: nowrap;
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.52);
     }
 
     .p-num b {
@@ -2133,6 +2136,49 @@
 
       .submit-btn {
         padding: 1.05rem;
+      }
+
+      /* Touch targets. Inline text links resolve to ~17px tall, which is well
+         under the ~44px a fingertip needs, and stacked links that close
+         together invite mis-taps. Real height here rather than an invisible
+         expanded hit area, which would overlap between adjacent rows. */
+      .cp-rows li {
+        min-height: 2.75rem;
+      }
+
+      .cp-rows li + li {
+        margin-top: 0;
+      }
+
+      .cp-rows a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 2.75rem;
+      }
+
+      .copy-btn {
+        min-height: 2.5rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .foot-col li + li {
+        margin-top: 0;
+      }
+
+      .foot-col a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 2.75rem;
+      }
+
+      .foot-col span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 2.25rem;
+      }
+
+      .foot-bottom a {
+        min-height: 2.75rem;
       }
 
       .foot-grid {
