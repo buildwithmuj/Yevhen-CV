@@ -2069,17 +2069,22 @@
       /* Measured, not guessed: the headline sits at 34–48% of the hero
          and the badge at 59–63%, so decoration lives in two real bands —
          0–34% above, 63–100% below — not squeezed against one edge. */
-      /* Chips that swap sides from their desktop anchor must null the old
-         one: with left, right and an explicit width all set, CSS keeps
-         `left`, and the stale desktop anchor silently wins. */
-      .chip-code     { left: 6%;   top: 4%;     }
-      .chip-ai       { right: 8%;  top: 6%;     }
-      .chip-react    { left: 4%;   top: 18%;    }
-      .chip-ts       { right: 5%;  top: 20%;    }
-      .chip-tailwind { left: 8%;   bottom: 24%; }
-      .chip-git      { left: auto; right: 9%;  bottom: 22%; }
-      .chip-vite     { left: 10%;  right: auto; bottom: 8%;  }
-      .chip-kanban   { right: 11%; bottom: 10%; }
+      /* Ring layout: four chips arc across the top and four mirror them
+         across the bottom, outer chips sitting lower than inner ones so
+         the eight together read as a circle around the centred headline.
+         Everything is left-anchored with the desktop `right` anchors
+         nulled wholesale, so no stale desktop anchor can silently win
+         (with left, right and a width all set, CSS keeps `left`). */
+      .float-chip { right: auto; }
+
+      .chip-code     { left: 6%;  top: 14%; }                  /* 10:00 */
+      .chip-ai       { left: 30%; top: 4%;  }                  /* 11:00 */
+      .chip-ts       { left: 59%; top: 4%;  }                  /* 1:00  */
+      .chip-kanban   { left: 83%; top: 14%; bottom: auto; }    /* 2:00  */
+      .chip-react    { left: 83%; top: auto; bottom: 14%; }    /* 4:00  */
+      .chip-vite     { left: 59%; bottom: 5%; }                /* 5:00  */
+      .chip-tailwind { left: 30%; bottom: 5%; }                /* 7:00  */
+      .chip-git      { left: 6%;  bottom: 14%; }               /* 8:00  */
 
       .menu-foot .socials {
         display: flex;
