@@ -2054,10 +2054,29 @@
       }
 
       .socials,
-      .cta,
-      .float-chip {
+      .cta {
         display: none;
       }
+
+      /* Chips stay, repositioned into the space above and below the headline */
+      .float-chip {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 0.75rem;
+        font-size: 0.6875rem;
+      }
+
+      .float-chip svg {
+        width: 1.125rem;
+        height: 1.125rem;
+      }
+
+      .chip-code     { left: 7%;   top: 13%;    }
+      .chip-ai       { right: 9%;  top: 11%;    }
+      .chip-react    { left: 4%;   top: 25%;    }
+      .chip-ts       { right: 5%;  top: 23%;    }
+      .chip-tailwind { left: 9%;   bottom: 16%; }
+      .chip-vite     { right: 11%; bottom: 12%; }
 
       .menu-foot .socials {
         display: flex;
